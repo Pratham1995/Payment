@@ -20,25 +20,25 @@ import com.example.PaymentValidation.Service.TransactionResponseDto;
 @RequestMapping("/Transaction")
 public class TransactionController {
 
-	@Autowired
-	private TransactionRepository dao;
+//	@Autowired
+//	private TransactionRepository dao;
 	@Autowired
 	private PaymentService service; 
 
-	@PostMapping("/add")
-	public Transaction addTransaction(@RequestBody Transaction transaction) {
-		
-		return dao.save(transaction);
-	}
-
-	@GetMapping("/all")
-	public Iterable<Transaction> allTransaction() {
-		
-		return dao.findAll();
-	}
+//	@PostMapping("/add")
+//	public Transaction addTransaction(@RequestBody Transaction transaction) {
+//		
+//		return dao.save(transaction);
+//	}
+//
+//	@GetMapping("/all")
+//	public Iterable<Transaction> allTransaction() {
+//		
+//		return dao.findAll();
+//	}
 	
-	  @RequestMapping(value = "/paymentProcess", method = RequestMethod.POST)
-	    public ResponseEntity paymentProcess(TransactionDTO dto) {
+	  @PostMapping(value = "/paymentProcess")
+	    public ResponseEntity<TransactionResponseDto> paymentProcess(@RequestBody TransactionDTO dto) {
 	        TransactionResponseDto dtoResponse = service.makePayment(dto);
 	        return new ResponseEntity(dtoResponse, HttpStatus.OK);
 	    }

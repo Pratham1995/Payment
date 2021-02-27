@@ -32,7 +32,7 @@ public class ValidationService implements PaymentService {
 
     private void validate(TransactionDTO paymentMessage) throws  PaymentProcessException{
 
-        checkDecimal(paymentMessage.getPaymentAmount(), 2, 1);
+       // checkDecimal(paymentMessage.getPaymentAmount(), 2, 1);
         checkContent(paymentMessage.getPaymentCurrency());
         validPatternMatch(paymentMessage.getCreditorAccount());
         validPatternMatch(paymentMessage.getDebtorAccount());
@@ -60,8 +60,18 @@ public class ValidationService implements PaymentService {
     private void validateDate(String value) throws PaymentProcessException {
 
         SimpleDateFormat sdfrmt = new SimpleDateFormat("MM/dd/yyyy");
-        String msgDate = sdfrmt.format(value);
-        String todayDate = sdfrmt.format(new Date());
+        String todayDate = "";
+        String msgDate ="";
+        try {
+         todayDate = sdfrmt.format(new Date());
+         msgDate= sdfrmt.format(value);
+
+        }
+        catch(Exception e)
+        {
+        	System.out.println(e.getMessage());
+        }
+        
         if (!msgDate.equals(todayDate)) {
             throw new PaymentProcessException("Validation Exception");
         }

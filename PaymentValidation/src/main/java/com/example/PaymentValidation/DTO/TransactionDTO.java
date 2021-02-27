@@ -8,7 +8,7 @@ private int messageId;
 private int endToEndId;
 private String debtorAccount;
 private String debtorName;
-private String Address;
+private String debtorAddress;
 private String creditorAccount;
 private String creditorName;
 private String creditorAddress;
@@ -42,10 +42,10 @@ public void setDebtorName(String debtorName) {
 	this.debtorName = debtorName;
 }
 public String getAddress() {
-	return Address;
+	return debtorAddress;
 }
 public void setAddress(String address) {
-	Address = address;
+	debtorAddress = address;
 }
 public String getCreditorAccount() {
 	return creditorAccount;
