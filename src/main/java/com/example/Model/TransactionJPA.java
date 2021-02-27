@@ -10,7 +10,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="TransactionData", uniqueConstraints = @UniqueConstraint(columnNames = {"TransactionId","MessageId"}))
-public class TransactionData {
+public class TransactionJPA {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String TransactionId;
@@ -38,6 +38,20 @@ public class TransactionData {
 	@Column(name="End2EndID")
 	private String TransactionStatus;
 	
+	
+	public TransactionJPA(String debatorAccount,
+			String debatorAgentIndentifier, String credatorAccount, String credatorAccountIdentidier,
+			String paymentCurrency, String paymentInfo, String valueDate, String transactionStatus) {
+		super();
+		DebatorAccount = debatorAccount;
+		DebatorAgentIndentifier = debatorAgentIndentifier;
+		CredatorAccount = credatorAccount;
+		CredatorAccountIdentidier = credatorAccountIdentidier;
+		PaymentCurrency = paymentCurrency;
+		PaymentInfo = paymentInfo;
+		ValueDate = valueDate;
+		TransactionStatus = transactionStatus;
+	}
 	public String getTransactionId() {
 		return TransactionId;
 	}
