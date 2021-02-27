@@ -19,8 +19,6 @@ public class TransactiondataService {
 		this.transactionRepository = transactionRepository;
 	}
 
-
-
 	public TransactionJPA save(PaymentTransactionDTO paymentTransactionDTO){
 		TransactionJPA transaction= new TransactionJPA(paymentTransactionDTO.getDebatorAccount(),paymentTransactionDTO.getDebatorAgentIndentifier(),paymentTransactionDTO.getCreditorAccount()
 				,paymentTransactionDTO.getCreditorAgentIndentifier(),paymentTransactionDTO.getPaymentCurrency(),paymentTransactionDTO.getPaymentInfo(),paymentTransactionDTO.getValueDate(),paymentTransactionDTO.getTransactionStatus());

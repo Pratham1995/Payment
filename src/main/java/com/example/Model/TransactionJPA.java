@@ -19,7 +19,7 @@ public class TransactionJPA {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String MessageId;
 	
-	@Column(name="End2EndID")
+	
 	private String End2EndId;
 	@Column(name="DebatorAccount")
 	private String DebatorAccount;
@@ -31,11 +31,11 @@ public class TransactionJPA {
 	private String CredatorAccountIdentidier;
 	@Column(name="PaymentCurrency")
 	private String PaymentCurrency;
-	@Column(name="End2EndID")
+	@Column(name="PaymentInfo")
 	private String PaymentInfo;
-	@Column(name="End2EndID")
+	@Column(name="ValueDate")
 	private String ValueDate;
-	@Column(name="End2EndID")
+	@Column(name="TransactionStatus")
 	private String TransactionStatus;
 	
 	

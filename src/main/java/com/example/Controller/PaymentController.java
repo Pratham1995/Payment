@@ -13,7 +13,6 @@ import com.example.Service.TransactiondataService;
 
 @RestController
 public class PaymentController {
-	private LogFactory logger=LogFactory.getFactory();
 	
 	private TransactiondataService transactionDataService;
 	
