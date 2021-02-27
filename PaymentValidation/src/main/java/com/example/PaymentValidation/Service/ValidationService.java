@@ -8,6 +8,7 @@ import com.example.PaymentValidation.DTO.TransactionDTO;
 import com.example.PaymentValidation.Exception.PaymentProcessException;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
@@ -16,6 +17,7 @@ import java.util.regex.Pattern;
 public class ValidationService implements PaymentService {
 
     private static String accountRegex = "^[A-Za-z0-9]{0,35}$";
+    
 
     @Override
     public TransactionResponseDto makePayment(TransactionDTO dto) {
@@ -32,7 +34,7 @@ public class ValidationService implements PaymentService {
 
     private void validate(TransactionDTO paymentMessage) throws  PaymentProcessException{
 
-       // checkDecimal(paymentMessage.getPaymentAmount(), 2, 1);
+    	//checkDecimal(paymentMessage.getPaymentAmount(), 2, 1 );
         checkContent(paymentMessage.getPaymentCurrency());
         validPatternMatch(paymentMessage.getCreditorAccount());
         validPatternMatch(paymentMessage.getDebtorAccount());
@@ -59,12 +61,14 @@ public class ValidationService implements PaymentService {
 
     private void validateDate(String value) throws PaymentProcessException {
 
-        SimpleDateFormat sdfrmt = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat sdfrmt = new SimpleDateFormat("MM/dd/yyyy");
         String todayDate = "";
         String msgDate ="";
         try {
          todayDate = sdfrmt.format(new Date());
-         msgDate= sdfrmt.format(value);
+         
+     
+         msgDate= sdfrmt.format(sdfrmt.parse(value));
 
         }
         catch(Exception e)

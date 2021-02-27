@@ -40,7 +40,7 @@ public class TransactionController {
 	  @PostMapping(value = "/paymentProcess")
 	    public ResponseEntity<TransactionResponseDto> paymentProcess(@RequestBody TransactionDTO dto) {
 	        TransactionResponseDto dtoResponse = service.makePayment(dto);
-	        return new ResponseEntity(dtoResponse, HttpStatus.OK);
+	        return new ResponseEntity<TransactionResponseDto>(dtoResponse, HttpStatus.OK);
 	    }
 		
 
