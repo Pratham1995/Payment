@@ -1,5 +1,7 @@
 package com.example.Model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +36,7 @@ public class TransactionJPA {
 	@Column(name="PaymentInfo")
 	private String PaymentInfo;
 	@Column(name="ValueDate")
-	private String ValueDate;
+	private Date ValueDate;
 	@Column(name="TransactionStatus")
 	private String TransactionStatus;
 	
